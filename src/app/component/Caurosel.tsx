@@ -3,6 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const Data = [
   { img: "./assets/c1.jpeg" },
@@ -13,7 +14,7 @@ const Data = [
   { img: "./assets/c6.jpeg" },
 ];
 export default function SimpleSlider() {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -31,7 +32,7 @@ export default function SimpleSlider() {
       {Data.map((item, index) => (
         <div key={index} className="bg-red-500">
           {" "}
-          <img src={item.img} alt="img" className="w-full" key={index} />
+          <Image src={item.img} alt="img" className="w-full" key={index} />
         </div>
       ))}
     </Slider>

@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
+import Image from "next/image";
 import Link from "next/link";
-import { text } from "stream/consumers";
-import SimpleSlider from "./Caurosel";
 
 const HeroData = [
   {
@@ -106,7 +104,7 @@ export default function Hero() {
             className="relative flex align-center justify-center"
             key={index}
           >
-            <img
+            <Image
               src={item.img}
               alt={item.title}
               className=" w-[90%] rounded-lg"
