@@ -50,6 +50,7 @@ export default function Hero() {
       <div className="flex flex-col items-center justify-center gap-4 mt-10">
         {HeroData.map((item, index) => (
           <motion.div
+            key={index}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
