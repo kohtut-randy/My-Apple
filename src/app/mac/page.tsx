@@ -14,6 +14,9 @@ export default function Mac() {
               <Image
                 src="https://www.apple.com/v/mac/home/cb/images/chapternav/macbookair_light__dfypt7o3xfgy_large.svg"
                 alt=""
+                width={1000}
+                height={1000}
+                className="w-[30px]"
               />
             </Link>
             <p className="text-align-center">MacBook Air</p>
@@ -23,6 +26,9 @@ export default function Mac() {
               <Image
                 src="https://www.apple.com/v/mac/home/cb/images/chapternav/macbook_pro_light__bvnmtmeikj1e_large.svg"
                 alt=""
+                width={1000}
+                height={1000}
+                className="w-[30px]"
               />
             </Link>
             <p>MacBook Pro</p>
@@ -32,6 +38,9 @@ export default function Mac() {
               <Image
                 src="https://www.apple.com/v/mac/home/cb/images/chapternav/imac_light__cx5ex9nbqxme_large.svg"
                 alt=""
+                width={1000}
+                height={1000}
+                className="w-[30px]"
               />
             </Link>
             <p>I Mac</p>
@@ -41,6 +50,9 @@ export default function Mac() {
               <Image
                 src="https://www.apple.com/v/mac/home/cb/images/chapternav/mac_pro_light__bly2b0ua4seq_large.svg"
                 alt=""
+                width={1000}
+                height={1000}
+                className="w-[30px]"
               />
             </Link>
             <p>Mac Pro</p>
@@ -50,6 +62,9 @@ export default function Mac() {
               <Image
                 src="https://www.apple.com/v/mac/home/cb/images/chapternav/displays_light__d67yrnk0qsa6_large.svg"
                 alt=""
+                width={1000}
+                height={1000}
+                className="w-[30px]"
               />
             </Link>
             <p className="text-align-center">Displays</p>

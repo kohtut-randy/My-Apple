@@ -108,6 +108,8 @@ export default function Hero() {
               src={item.img}
               alt={item.title}
               className=" w-[90%] rounded-lg"
+              width={1000}
+              height={1000}
             />
             <figcaption className="absolute top-4 left-0 right-0 bg-black bg-transparent text-black text-lg font-bold p-2 text-center">
               {item.title}

@@ -1,5 +1,5 @@
 import Hero from "./component/Hero";
-import SimpleSlider from "./component/Caurosel";
+import { SimpleSlider } from "./component/Caurosel";
 
 export default function Home() {
   return (

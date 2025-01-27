@@ -6,14 +6,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
 const Data = [
-  { img: "./assets/c1.jpeg" },
-  { img: "./assets/c2.jpeg" },
-  { img: "./assets/c3.jpeg" },
-  { img: "./assets/c4.jpeg" },
-  { img: "./assets/c5.jpeg" },
-  { img: "./assets/c6.jpeg" },
+  { img: "/assets/c1.jpeg" },
+  { img: "/assets/c2.jpeg" },
+  { img: "/assets/c3.jpeg" },
+  { img: "/assets/c4.jpeg" },
+  { img: "/assets/c5.jpeg" },
+  { img: "/assets/c6.jpeg" },
 ];
-export default function SimpleSlider() {
+function SimpleSlider() {
   const settings = {
     dots: true,
     infinite: true,
@@ -32,9 +32,17 @@ export default function SimpleSlider() {
       {Data.map((item, index) => (
         <div key={index} className="bg-red-500">
           {" "}
-          <Image src={item.img} alt="img" className="w-full" key={index} />
+          <Image
+            src={item.img}
+            alt="img"
+            className="w-full"
+            key={index}
+            width={1000}
+            height={1000}
+          />
         </div>
       ))}
     </Slider>
   );
 }
+export { SimpleSlider };
