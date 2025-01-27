@@ -35,7 +35,7 @@ function SimpleSlider() {
           <Image
             src={item.img}
             alt="img"
-            className="w-full"
+            className="w-full h-[700px]"
             key={index}
             width={1000}
             height={1000}

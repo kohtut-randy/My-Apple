@@ -22,14 +22,14 @@ const HeroData = [
 ];
 const HeroData2 = [
   {
-    img: "https://www.apple.com/v/home/bz/images/promos/iphone-16/promo_iphone16_avail__cl72dn7xdfv6_medium.jpg",
-    title: "I Phone16",
+    img: "https://www.apple.com/v/home/bz/images/promos/iphone-tradein/promo_iphone_tradein__bugw15ka691e_medium.jpg",
+    title: "Trade In",
     text: "Hello Apple Intelligence",
   },
   {
     img: "https://www.apple.com/v/home/bz/images/promos/apple-watch-series-10/promo_apple_watch_series_10_avail_lte__c70y29goir42_medium.jpg",
     title: "I Watch",
-    text: "Thinpossible",
+    text: "Think Possible",
   },
   {
     img: "https://www.apple.com/v/home/bz/images/promos/macbook-air-m3/promo_macbook_air_m3__e43jegok3wuq_medium.jpg",
@@ -37,14 +37,14 @@ const HeroData2 = [
     text: "Hello Apple Intelligence",
   },
   {
-    img: "https://www.apple.com/v/home/bz/images/promos/macbook-air-m3/promo_macbook_air_m3__e43jegok3wuq_medium.jpg",
-    title: "Macbook Air",
-    text: "Hello Apple Intelligence",
+    img: "https://www.apple.com/v/home/bz/images/promos/apple-card/promo_apple_card__5cm7draujpey_medium.jpg",
+    title: "Apple Gift Card",
+    text: "Get Up 30% Daily Cash Back",
   },
 ];
 export default function Hero() {
   return (
-    <div>
+    <div className="flex flex-col gap-4 bg-white">
       <div className="flex flex-col items-center justify-center gap-4 mt-10">
         {HeroData.map((item, index) => (
           <motion.div
@@ -98,21 +98,23 @@ export default function Hero() {
           </motion.div>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-2 mt-[100px]  bg-white">
+      <div className="grid grid-cols-2 mt-10 gap-4">
         {HeroData2.map((item, index) => (
           <figure
-            className="relative flex align-center justify-center"
+            className="relative col-span-1 flex align-center justify-center"
             key={index}
           >
             <Image
               src={item.img}
               alt={item.title}
-              className=" w-[90%] rounded-lg"
+              className=" w-[100%] h-[580px] rounded-lg"
               width={1000}
               height={1000}
             />
-            <figcaption className="absolute top-4 left-0 right-0 bg-black bg-transparent text-black text-lg font-bold p-2 text-center">
-              {item.title}
+            <figcaption className="absolute flex flex-col top-4 left-0 right-0 bg-black bg-transparent text-black text-lg font-bold p-2 text-center">
+              <span> {item.title}</span>
+              <span> {item.text}</span>
+
               <div className="flex align-center justify-center gap-5 mt-6">
                 <Link href="/details/mac">
                   <p className="text-lg font-medium text-blue-500 hover:underline cursor-pointer">

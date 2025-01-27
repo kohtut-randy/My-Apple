@@ -1,6 +1,46 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import AutoPlay from "../component/cardslide";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../component/Dialog";
+const Data = [
+  {
+    img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_intelligence__esfi0qmvis6e_medium.jpg",
+    content: {
+      body: [
+        {
+          text: "Supercharged by Apple silicon. Apple silicon brings game-changing power and speed to Mac. It integrates the CPU, GPU, and Neural Engine onto a single power-efficient chip, accelerating everything you do. And it makes it possible for the incredible AI performance on Mac to boost your creativity and productivity.",
+          img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/boc_performance_01__slniatu7x8yi_large.jpg",
+        },
+        {
+          text: "Supercharged by Apple silicon. Apple silicon brings game-changing power and speed to Mac. It integrates the CPU, GPU, and Neural Engine onto a single power-efficient chip, accelerating everything you do. And it makes it possible for the incredible AI performance on Mac to boost your creativity and productivity.",
+          img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/boc_performance_01__slniatu7x8yi_large.jpg",
+        },
+      ],
+    },
+  },
+  {
+    img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_performance__dh5hyac1zf8m_medium.jpg",
+  },
+  {
+    img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_iphone__gh1tblkt6bqm_small_2x.jpg",
+  },
+  {
+    img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_compatibility__cu59oukz81ci_small_2x.jpg",
+  },
+  {
+    img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_durability__epiwcuk7zkeq_small_2x.jpg",
+  },
+  {
+    img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_values__c9gck9qi4kia_small_2x.jpg",
+  },
+];
 export default function Mac() {
   return (
     <div className="bg-white">
@@ -87,6 +127,45 @@ export default function Mac() {
       </div>
       <div>
         <h1 className="text-[50px]">Get To Know Mac.</h1>
+        <AutoPlay>
+          {Data.map((item, index) => (
+            <div key={index} className="w-[80%]">
+              <Dialog>
+                <DialogTrigger>
+                  <Image
+                    src={item.img}
+                    alt=""
+                    className=" w-[450px] h-[650px] rounded-xl mx-4 bg-contain"
+                    width={1000}
+                    height={1000}
+                  />
+                </DialogTrigger>
+                <DialogContent className="flex flex-col items-center justify-center bg-white text-black border border-red-300">
+                  <DialogHeader>
+                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogDescription>
+                      Make changes to your profile here. Click save when you're
+                      done.
+                    </DialogDescription>
+                  </DialogHeader>
+                  {item?.content?.body.map((item, index) => (
+                    <div className="flex flex-col items-center justify-center">
+                      <Image
+                        key={index}
+                        src={item.img}
+                        alt=""
+                        className=" w-[1000px] h-auto rounded-xl mx-4 bg-contain"
+                        width={1000}
+                        height={1000}
+                      />
+                      <p>{item.text}</p>
+                    </div>
+                  ))}
+                </DialogContent>
+              </Dialog>
+            </div>
+          ))}
+        </AutoPlay>
       </div>
     </div>
   );
