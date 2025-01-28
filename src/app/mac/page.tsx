@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import AutoPlay from "../component/cardslide";
@@ -9,6 +10,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../component/Dialog";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 const Data = [
   {
     img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_intelligence__esfi0qmvis6e_medium.jpg",
@@ -41,7 +44,10 @@ const Data = [
     img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/mac_values__c9gck9qi4kia_small_2x.jpg",
   },
 ];
+
 export default function Mac() {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   return (
     <div className="bg-white">
       <div className="flex flex-row items-center justify-center gap-4 ">
@@ -118,12 +124,21 @@ export default function Mac() {
             If you can dream it, Mac can do it. <span>Mac can do it.</span>
           </p>
         </div>
-        <video
-          autoPlay
-          controls
-          loop
-          src="https://www.apple.com/105/media/us/mac/family/2024/b0f6d595-f4dd-4393-8316-102be97a5d1b/anim/welcome/xlarge_2x.mp4"
-        ></video>
+        <motion.div
+          style={{
+            scale,
+            position: "sticky",
+            top: "80px",
+            zIndex: 10,
+          }}
+        >
+          <video
+            autoPlay
+            controls
+            loop
+            src="https://www.apple.com/105/media/us/mac/family/2024/b0f6d595-f4dd-4393-8316-102be97a5d1b/anim/welcome/xlarge_2x.mp4"
+          ></video>
+        </motion.div>
       </div>
       <div>
         <h1 className="text-[50px]">Get To Know Mac.</h1>
@@ -144,17 +159,19 @@ export default function Mac() {
                   <DialogHeader>
                     <DialogTitle>Edit profile</DialogTitle>
                     <DialogDescription>
-                      Make changes to your profile here. Click save when you're
-                      done.
+                      Make changes to your profile here. Click save when
+                      you&apos;are done.
                     </DialogDescription>
                   </DialogHeader>
                   {item?.content?.body.map((item, index) => (
-                    <div className="flex flex-col items-center justify-center">
+                    <div
+                      className="!flex flex-col items-center justify-center bg-red-400"
+                      key={index}
+                    >
                       <Image
-                        key={index}
                         src={item.img}
                         alt=""
-                        className=" w-[1000px] h-auto rounded-xl mx-4 bg-contain"
+                        className=" !w-[50%]] h-auto rounded-xl mx-4 bg-contain"
                         width={1000}
                         height={1000}
                       />

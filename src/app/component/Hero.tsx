@@ -1,7 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { Typewriter } from "react-simple-typewriter";
 
 const HeroData = [
   {
@@ -11,15 +12,16 @@ const HeroData = [
   },
   {
     img: "https://www.apple.com/v/ipad-pro/ar/images/overview/hero/hero_endframe__sg50vzdd6sqm_large.jpg",
-    title: "I Pad Pro",
+    title: "iPad Pro",
     text: "Thinpossible",
   },
   {
     img: "https://www.apple.com/v/home/bz/images/heroes/iphone-16-pro/hero_iphone16pro_avail__fnf0f9x70jiy_mediumtall.jpg",
-    title: "I Phone 16 Pro",
+    title: "iPhone 16 Pro",
     text: "Hello Apple Intelligence",
   },
 ];
+
 const HeroData2 = [
   {
     img: "https://www.apple.com/v/home/bz/images/promos/iphone-tradein/promo_iphone_tradein__bugw15ka691e_medium.jpg",
@@ -28,12 +30,12 @@ const HeroData2 = [
   },
   {
     img: "https://www.apple.com/v/home/bz/images/promos/apple-watch-series-10/promo_apple_watch_series_10_avail_lte__c70y29goir42_medium.jpg",
-    title: "I Watch",
+    title: "iWatch",
     text: "Think Possible",
   },
   {
     img: "https://www.apple.com/v/home/bz/images/promos/macbook-air-m3/promo_macbook_air_m3__e43jegok3wuq_medium.jpg",
-    title: "Macbook Air",
+    title: "MacBook Air",
     text: "Hello Apple Intelligence",
   },
   {
@@ -42,17 +44,29 @@ const HeroData2 = [
     text: "Get Up 30% Daily Cash Back",
   },
 ];
+
 export default function Hero() {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
+
   return (
-    <div className="flex flex-col gap-4 bg-white">
+    <div className="flex flex-col gap-4">
       <div className="flex flex-col items-center justify-center gap-4 mt-10">
         {HeroData.map((item, index) => (
           <motion.div
+            style={{
+              scale,
+              position: "sticky",
+              top: "80px",
+              zIndex: 10,
+            }}
             key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
             className="flex flex-col items-center justify-center bg-black"
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
           >
             <div
               className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
@@ -61,18 +75,20 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className=" flex flex-col justify-center items-center"
+                transition={{ duration: 1.0, delay: 0.4 }}
+                className="flex flex-col justify-center items-center"
               >
-                <p className="text-5xl text-white ">{item.title}</p>
-                <p className="text-2xl pt-2 text-white bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-transparent">
+                <p className="text-5xl bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-transparent">
+                  <Typewriter cursor={false} words={[item.title]} />
+                </p>
+                <p className="text-2xl pt-2  bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-transparent">
                   {item.text}
                 </p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
+                  transition={{ duration: 1.0, delay: 0.6 }}
                   className="flex gap-10 mt-5"
                 >
                   <Link href="/details/mac">
@@ -91,7 +107,7 @@ export default function Hero() {
             <motion.img
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 1.5, delay: 0.8 }}
               src={item.img}
               className="w-[1800px] h-[75vh]"
             />
@@ -107,13 +123,13 @@ export default function Hero() {
             <Image
               src={item.img}
               alt={item.title}
-              className=" w-[100%] h-[580px] rounded-lg"
+              className="w-[100%] h-[580px] rounded-lg"
               width={1000}
               height={1000}
             />
             <figcaption className="absolute flex flex-col top-4 left-0 right-0 bg-black bg-transparent text-black text-lg font-bold p-2 text-center">
-              <span> {item.title}</span>
-              <span> {item.text}</span>
+              <span>{item.title}</span>
+              <span>{item.text}</span>
 
               <div className="flex align-center justify-center gap-5 mt-6">
                 <Link href="/details/mac">

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./header";
 import Footer from "./footer";
+import Image from "next/image";
+import Link from "next/link";
 // import Footer from "./footer";
 
 const geistSans = Geist({
@@ -31,6 +33,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
+        <div className=" bg-white py-10 flex items-center justify-center  gap-2 ">
+          <Image
+            src="https://www.apple.com/v/home/ca/images/logos/red-cross/logo_arc__cqzlb6z7yfo2_large.jpg"
+            width={10}
+            height={10}
+            alt=""
+            className="w-[30px]"
+          />
+          <Link href="" className="font-2xl text-blue-600">
+            Donate to 2025 Southern California wildfires
+          </Link>
+        </div>
+
         {children}
         <Footer />
       </body>

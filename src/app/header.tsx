@@ -2,8 +2,8 @@ import Link from "next/link";
 import { BsApple } from "react-icons/bs";
 const Header = () => {
   return (
-    <header className=" sticky top-0 left-0 w-full backdrop-blur-sm bg-gradient-to-r from-slate-50/90 to-gray-50/90 z-50 bg-black">
-      <div className="container mx-auto flex justify-between lg:gap-5 font-thin text-sm items-center flex-wrap bg-black text-white px-20">
+    <header className="sticky top-0 left-0 w-full backdrop-blur-sm bg-gradient-to-r from-slate-50/90 to-gray-50/90 z-100 bg-transparent">
+      <div className="container mx-auto flex justify-between lg:gap-5 font-thin text-sm items-center flex-wrap bg-transparent text-black px-20">
         <Link href="/">
           <BsApple className="text-lg" />
         </Link>

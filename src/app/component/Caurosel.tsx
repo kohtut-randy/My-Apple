@@ -27,15 +27,15 @@ function SimpleSlider() {
   return (
     <Slider
       {...settings}
-      className="flex align-self-center justify-center w-[100%]"
+      className="flex align-self-center justify-center w-[100%] bg-white mt-10"
     >
       {Data.map((item, index) => (
-        <div key={index} className="bg-red-500">
+        <div key={index} className="!flex items-center justify-center">
           {" "}
           <Image
             src={item.img}
             alt="img"
-            className="w-full h-[700px]"
+            className="w-[90%] h-[700px]"
             key={index}
             width={1000}
             height={1000}
