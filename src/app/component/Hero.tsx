@@ -58,7 +58,7 @@ export default function Hero() {
               scale,
               position: "sticky",
               top: "80px",
-              zIndex: 10,
+              zIndex: 5,
             }}
             key={index}
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -79,10 +79,14 @@ export default function Hero() {
                 className="flex flex-col justify-center items-center"
               >
                 <p className="text-5xl bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-transparent">
-                  <Typewriter cursor={false} words={[item.title]} />
+                  <Typewriter
+                    cursor={true}
+                    delaySpeed={3000}
+                    words={[item.title]}
+                  />
                 </p>
-                <p className="text-2xl pt-2  bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-transparent">
-                  {item.text}
+                <p className="text-2xl pt-2 bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-transparent">
+                  <Typewriter cursor={true} loop words={[item.text]} />
                 </p>
 
                 <motion.div
