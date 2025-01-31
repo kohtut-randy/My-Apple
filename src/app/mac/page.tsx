@@ -25,6 +25,10 @@ const Data = [
           text: "Supercharged by Apple silicon. Apple silicon brings game-changing power and speed to Mac. It integrates the CPU, GPU, and Neural Engine onto a single power-efficient chip, accelerating everything you do. And it makes it possible for the incredible AI performance on Mac to boost your creativity and productivity.",
           img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/boc_performance_01__slniatu7x8yi_large.jpg",
         },
+        {
+          text: "Supercharged by Apple silicon. Apple silicon brings game-changing power and speed to Mac. It integrates the CPU, GPU, and Neural Engine onto a single power-efficient chip, accelerating everything you do. And it makes it possible for the incredible AI performance on Mac to boost your creativity and productivity.",
+          img: "https://www.apple.com/v/mac/home/cb/images/overview/consider/boc_performance_01__slniatu7x8yi_large.jpg",
+        },
       ],
     },
   },
@@ -146,7 +150,7 @@ export default function Mac() {
           {Data.map((item, index) => (
             <div key={index} className="w-[80%]">
               <Dialog>
-                <DialogTrigger>
+                <DialogTrigger className="focus:outline-none ">
                   <Image
                     src={item.img}
                     alt=""
